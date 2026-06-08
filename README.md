@@ -62,7 +62,7 @@ All commands in this guide will be typed into the terminal.
 2. Navigate to **Admin** → your institution name.
 3. Click **Settings**.
 4. Click the **Reports** tab.
-5. Find the **ePortfolios** report and click **Configure**. To get a report of active ePortfolios, click **Run Report**. To get a report of deleted ePortfolios, click the **Only include ePortfolios that have been removed** checkbox, the click **Run Report**.
+5. Find the **ePortfolios** report and click **Configure**. To get a report of active ePortfolios, click **Run Report**. To get a report of deleted ePortfolios, click the **Only include ePortfolios that have been removed** checkbox, then click **Run Report**.
 8. Wait for the report to finish generating (refresh the page if needed).
 7. Download the CSV file when the link appears.
 6. Save it as `eportfolio_list.csv` in the project folder (or update `EPORTFOLIO_ARCHIVER_CSV_PATH` in your `.env` to point to wherever you saved it).
