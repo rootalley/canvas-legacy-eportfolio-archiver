@@ -255,6 +255,16 @@ Canvas took longer than `DOWNLOAD_TIMEOUT_MS` to generate the ZIP. Increase the 
 **Restore API returned HTTP 401 or HTTP 403**
 The API token is missing or does not have admin privileges. Regenerate the token from the admin account and update `EPORTFOLIO_ARCHIVER_CANVAS_API_TOKEN` in your `.env`.
 
+## Frequently Asked Questions
+
+### How long does it take to run?
+
+It depends on how much data each ePortfolio contains. In one run of approximately 2,500 ePortfolios on a hosted Canvas instance, the archiver averaged about 26 seconds per item. ZIP generation appears to be the bottleneck.
+
+### Why does the tool update the `updated_at` timestamp on ePortfolios?
+
+Canvas treats generating an export ZIP as an "update," which causes the `updated_at` timestamp to change. This is debatable behavior, but it can work in your favor: run the archiver once as an early snapshot, then re-run the ePortfolio report as your end-of-life date approaches. Any ePortfolios with an `updated_at` timestamp after your initial run were genuinely changed by their owners and may warrant a fresh download. Remove or relocate the original ZIP files for those items (or set a different `EXPORT_DIR`) so the tool does not skip them on the follow-up run.
+
 ## Contributing
 
 Contributions, bug reports, and pull requests are welcome. If you encounter a Canvas configuration this script does not handle — a different SSO setup, an unusual login page, a Canvas version with different selectors — please open an issue or submit a pull request with a fix.
